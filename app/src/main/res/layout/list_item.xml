@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="item"
+            type="com.example.wishlist.database.item.ItemData" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <!-- Eerste rij -->
+        <TextView
+            android:id="@+id/item_label_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="naam:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:truncatedText="@{item.Naam}"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/item_label_name"
+            app:layout_constraintTop_toTopOf="@id/item_label_name"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/item_label_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bedrag:"
+            app:layout_constraintStart_toEndOf="@id/item_name"
+            app:layout_constraintTop_toTopOf="@id/item_name"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"€" +String.valueOf(item.Bedrag)}'
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/item_label_price"
+            app:layout_constraintTop_toTopOf="@id/item_label_price"
+            android:padding="8dp" />
+
+        <!-- Tweede rij -->
+        <TextView
+            android:id="@+id/item_label_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="url:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_label_name"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/item_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.Url}"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/item_label_url"
+            app:layout_constraintTop_toTopOf="@id/item_label_url"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="8dp" />
+
+        <!-- Delete Button -->
+        <FrameLayout
+            android:id="@+id/delete_button_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <include
+                layout="@layout/delete_button" />
+
+        </FrameLayout>
+
+        <!-- Horizontale lijn -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_label_url"
+            android:layout_marginTop="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

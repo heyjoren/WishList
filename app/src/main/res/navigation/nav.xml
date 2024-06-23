@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/home">
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.wishlist.home"
+        android:label="Home"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/bedrag"
+        android:name="com.example.wishlist.bedrag"
+        android:label="Bedrag"
+        tools:layout="@layout/fragment_bedrag" />
+    <fragment
+        android:id="@+id/item"
+        android:name="com.example.wishlist.item"
+        android:label="Items"
+        tools:layout="@layout/fragment_item" >
+        <action
+            android:id="@+id/action_item_to_detail_item"
+            app:destination="@id/detail_item">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/detail_item"
+        android:name="com.example.wishlist.detailItem.detail_item"
+        android:label="Detail item">
+        <action
+            android:id="@+id/action_detail_item_to_change_item"
+            app:destination="@id/change_item"
+            app:popUpTo="@id/item" />
+        <action
+            android:id="@+id/action_detail_item_to_item"
+            app:destination="@id/item" />
+        <argument
+            android:name="itemId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/change_item"
+        android:name="com.example.wishlist.changeItem.change_item"
+        android:label="Change item">
+        <action
+            android:id="@+id/action_change_item_to_item"
+            app:destination="@id/item" />
+        <argument
+            android:name="itemId"
+            app:argType="long" />
+    </fragment>
+    <dialog
+        android:id="@+id/addKeuze"
+        android:name="com.example.wishlist.addKeuze"
+        android:label="Add keuze">
+        <action
+            android:id="@+id/action_addKeuze_to_add_item"
+            app:destination="@id/add_item" />
+    </dialog>
+    <fragment
+        android:id="@+id/add_item"
+        android:name="com.example.wishlist.add_item"
+        android:label="Add item">
+        <action
+            android:id="@+id/action_add_item_to_item"
+            app:destination="@id/item" />
+    </fragment>
+</navigation>

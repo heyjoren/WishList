@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Transparante achtergrond -->
+    <item>
+        <shape>
+            <solid android:color="@color/white_transparant_ultra"/>
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+</layer-list>
