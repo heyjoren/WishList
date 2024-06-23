@@ -9,7 +9,7 @@ class ViewModel_bedrag : ViewModel(){
     val welcomeMessage: LiveData<String> = _welcomeMessage
 
     init {
-        _welcomeMessage.value = "Dit is de bedrag pagina"
+        _welcomeMessage.value = "test"
     }
 
     fun updateWelcomeMessage(newMessage: String) {
